@@ -22,7 +22,7 @@ body{
 
 }
 .seats{
-    display: none;
+   // display: none;
 }
 .loggin>form{
     //background-color: #fff;
@@ -48,5 +48,61 @@ body{
  }
 
  .seats{
-
+     background-color: black;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     justify-content: left;
+     align-items: center;
+     flex-direction: column;
  }
+.pick{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap ;
+
+}
+.pick>div{
+    width: 90%;
+   //ackground-color: black;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.p1{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    ga ding-left: 10px
+}
+.p2{
+    height: 100%;
+    width: 100%;
+
+}
+ .options{
+    height: 25%;
+     width: 100%;
+     background-color: lightseagreen;
+ }
+
+ button{
+     height: 20%;
+     width: 4%;
+     background-color: #fff;
+     margin: 0;
+     padding: 0;
+ }
+
