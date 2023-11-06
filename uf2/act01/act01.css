@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: fantasy;
+
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loggin{
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    display: none;
+
+}
+.seats{
+    display: none;
+}
+.loggin>form{
+    //background-color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+
+}.loggin>form>input{
+    width: 50%;
+    height: 50px;
+    border: none;
+    padding: 0 0 0 5%;
+    margin: 0;
+    box-sizing: border-box;
+
+ }
+ .loggin>form>input[type="submit"]{
+     padding: 0;
+ }
+
+ .seats{
+
+ }
