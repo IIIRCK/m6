@@ -69,15 +69,23 @@ body{
     font-size: 2em;
     color: black;
     font-family: fantasy;
-    position: absolute;
 }
 .button:hover{
-        transform: perspective(600px) rotateY(180deg);
 }
+.button>span{
+    height: 80%;
+    width: 80%;
+   // background-image: url('./img/ca.gif');
+   //  background-repeat: no-repeat;
+   // background-size: 200%;
+   // background-position: 75% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 
-#01_1{
-    background-color: red;
-}
-#01_2{
-    background-color: white;
+
 }
