@@ -13,26 +13,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.loggin{
-    background-color: white;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-.loggin>form{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
 }
 
 .calendar{
     background: radial-gradient(circle, green 15% ,darkgreen 75%);
-        height: 90%;
+    height: 80%;
     width: 80%;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -89,3 +75,54 @@ body{
 
 
 }
+
+.ranking{
+    background-color: #fff;
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: scroll;
+}
+.options{
+    height: 20%;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+ .rnk{
+     height: 100%;
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-direction: column;
+ }
+
+ .o_play{
+     height: 25%;
+     width: 25%;
+ }
+
+ .o_game{
+     height: 100%;
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+
+ /*
+ 1 input name
+ 2 play
+    1 load_calendar
+        rand giffs/bl
+
+    2
+ */

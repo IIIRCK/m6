@@ -1,49 +1,98 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    localStorage.setItem('usr', '1234');
-    localStorage.setItem('usr1', '1234');
-    //loggin()
-    calendar()
-    rand_gft()
+    rnk()
+    //game()
+    //calendar()
+    //rand_gft()
     //localStorage.clear()
+
 });
 
 let cnt = document.querySelector('.container');
-let user
-function loggin(){
-    let loggin = document.createElement('div');
-    loggin.setAttribute('class', 'loggin');
-    loggin.innerHTML = `
-        <form>
-            <input type="text" placeholder="user" id="name" value="usr">
-            <input type="password" placeholder="psswd" id="psswd" value="1234">
-            <input type="submit" value="Loggin" id="btn_loggin">
-        </form>
-    `;
-    cnt.appendChild(loggin)
-    document.querySelector('#btn_loggin').onclick = function (e){
-        e.preventDefault()
-        let usr = document.querySelector('#name').value
-        let psswd = document.querySelector('#psswd').value
-
-        check_loggin(usr,psswd)
-    }
-
+let player
+let ct = 0
+let carbon = false
+function rnk(){
+    cnt.innerHTML= ''
+    ranking()
+    options_rnk()
 }
-function check_loggin(a,b){
+function game(){
+    cnt.innerHTML= ''
+    calendar()
+    options_game()
+    rand_gft();
+}
+function ranking(){
+    let rnk = document.createElement('div')
+    rnk.setAttribute('class','ranking')
+    let table = document.createElement('table')
+    let players = document.createElement('th')
+    players.textContent = 'PLAYERS'
+    let regals = document.createElement('th')
+    regals.textContent = 'REGALS'
+    table.appendChild(players);
+    table.appendChild(regals);
+    ranking_list().forEach(r =>{
+        table.appendChild(r)
+    })
+    rnk.appendChild(table)
+    cnt.appendChild(rnk)
+}
+function ranking_list() {
+    let kk = Object.keys(localStorage)
+    let rows = [];
+    if (kk != '') {
+        kk.forEach(k =>{
+            if (k.startsWith('p_')){
+            let  row = document.createElement('tr')
+            let c1 = document.createElement('td')
+            c1.textContent = k.slice(2)
+            let v = localStorage.getItem(k)
+            let c2 = document.createElement('td')
+            c2.textContent = v
+            row.appendChild(c1)
+            row.appendChild(c2)
+            rows.push(row)}
+        })
+        return rows;
 
-    let x = localStorage.getItem(a)
-    if ( x === b ){
-        //alert('nice')
-        cnt.innerHTML=''
-        user = a;
-           }
-    else {
-        alert('usr o psswd no coincide')
+
+    }else {
+        let row = document.createElement('tr')
+        let c1 = document.createElement('td')
+        c1.textContent = 'no'
+        let c2 = document.createElement('td')
+        c2.textContent = 'players'
+        row.appendChild(c1)
+        row.appendChild(c2)
+
+        rows.push(row)
+        return rows;
     }
 }
-
+function options_rnk(){
+    let opt = document.createElement('div')
+    opt.setAttribute('class','options')
+    opt.innerHTML = `
+        <div class="rnk">
+            <input type="text" id="o_name" placeholder="nickname">
+            <button class="o_play" onclick="btn_play()">PLAY</button>
+        </div>`
+    cnt.appendChild(opt)
+}
+function options_game(){
+    let opt = document.createElement('div')
+    opt.setAttribute('class','options')
+    opt.innerHTML = `
+        <div class="o_game">
+            <h3>user: <span>${player.slice(2)}</span></h3>
+            <h3>regalos: <span class="o_ct">0</span></h3>
+        </div>`
+    cnt.appendChild(opt)
+}
 function calendar(){
+
     let cal = document.createElement('div')
     cal.setAttribute('class','calendar')
     let btns = document.createElement('div')
@@ -59,7 +108,10 @@ function calendar(){
         btns.appendChild(btn)
     }
     cal.appendChild(btns)
+
+
     cnt.appendChild(cal)
+
 }
 
 let btn_bl =[]
@@ -74,13 +126,7 @@ function rand_gft(){
 
     }
     p.forEach(e =>{
-        console.log(e)
         btn_bl[e] = 1;
-
-    })
-    
-    btn_bl.forEach((v,i)=>{
-        console.log(v+' '+ i)
     })
     console.log(btn_bl)
 }
@@ -90,10 +136,26 @@ function  show_bl(id){
     let spn = btn.querySelector('span')
     
     if (btn_bl[id] ===1){
-        spn.textContent = 'bad'
+        spn.textContent = 'C'
+        //carbon = true
+        alert('perdiste')
+        localStorage.setItem(player,ct.toString());
+        ct = 0;
+        rnk()
     }else   {
-        spn.textContent = 'good'
+        spn.textContent = 'R'
+        ct++;
+        if (ct === 19){
+                alert("ganaste")
+                localStorage.setItem(player,ct.toString());
+                ct = 0;
+                rnk()
+        }
+        let ctt = document.querySelector('.o_ct')
+        ctt.textContent = ct
     }
+
+
 }
 function flip(button){
     let btn = button
@@ -106,7 +168,29 @@ function flip(button){
         spn.style.transform = 'scalex(-1)'
         show_bl(id)
     }, 200);
-    
-    console.log('ss')
-    
+
+    document.getElementById(id).style.pointerEvents = 'none';
+}
+
+
+function btn_exit() {
+    cnt.innerHTML = ''
+    loggin();
+
+}
+
+function  btn_play(){
+    let pp = document.getElementById('o_name').value
+    let p = 'p_'+pp
+    player = p
+
+    if (localStorage.getItem(p)){
+        alert('jugador ya existe')
+    }
+    else {
+        localStorage.setItem(p,'0')
+        cnt.innerHTML= ''
+        game()
+    }
+
 }
