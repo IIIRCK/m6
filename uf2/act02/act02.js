@@ -42,19 +42,28 @@ function ranking(){
 function ranking_list() {
     let kk = Object.keys(localStorage)
     let rows = [];
-    if (kk != '') {
-        kk.forEach(k =>{
-            if (k.startsWith('p_')){
-            let  row = document.createElement('tr')
-            let c1 = document.createElement('td')
-            c1.textContent = k.slice(2)
-            let v = localStorage.getItem(k)
-            let c2 = document.createElement('td')
-            c2.textContent = v
-            row.appendChild(c1)
-            row.appendChild(c2)
-            rows.push(row)}
-        })
+    let sorted = []
+    if (kk.length > 0) {
+        let filteredKeys = kk.filter(k => k.startsWith('p_'));
+        let sortedKeys = filteredKeys.sort((a, b) => {
+            let va = parseInt(localStorage.getItem(a), 10);
+            let vb = parseInt(localStorage.getItem(b), 10);
+            return vb - va;
+        });
+
+        
+        sortedKeys.forEach(k => {
+            let row = document.createElement('tr');
+            let c1 = document.createElement('td');
+            c1.textContent = k.slice(2);
+            let v = localStorage.getItem(k);
+            let c2 = document.createElement('td');
+            c2.textContent = v;
+            row.appendChild(c1);
+            row.appendChild(c2);
+            rows.push(row);
+        });
+        
         return rows;
 
 
@@ -86,8 +95,8 @@ function options_game(){
     opt.setAttribute('class','options')
     opt.innerHTML = `
         <div class="o_game">
-            <h3>user: <span>${player.slice(2)}</span></h3>
-            <h3>regalos: <span class="o_ct">0</span></h3>
+            <h3>player: <span>${player.slice(2)}</span></h3>
+            <h3>regalos: <span class="o_ct">0</span>/19</h3>
         </div>`
     cnt.appendChild(opt)
 }
@@ -136,14 +145,14 @@ function  show_bl(id){
     let spn = btn.querySelector('span')
     
     if (btn_bl[id] ===1){
-        spn.textContent = 'C'
+        spn.textContent = 'CARBON'
         //carbon = true
         alert('perdiste')
         localStorage.setItem(player,ct.toString());
         ct = 0;
         rnk()
     }else   {
-        spn.textContent = 'R'
+        spn.textContent = 'REGALO'
         ct++;
         if (ct === 19){
                 alert("ganaste")
