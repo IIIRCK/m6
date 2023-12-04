@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+let noms = []
+let pareja = []
+for (let i = 0; i < 4; i++) {
+    noms.push(prompt('introduce un nombre'))
+}
+/*noms.forEach(e =>{
+    console.log(e)
+})*/
+console.log(noms)
+
+let p =[]
+let pp
+
+for (let i = 0; i < 4 ; i++) {
+    do {
+        pp =   Math.floor(Math.random()* 4)+1
+    }while (p.includes(pp))
+    p.push(pp)
+}
+
+p.forEach(i =>{
+    pareja.push(noms[i])
+    
+})
+
+for (let i = 0; i < 6; i++) {
+    console.log(noms[i] +' pareja '+pareja[i])
+}
+
+
+</script>
+</body>
+</html>
