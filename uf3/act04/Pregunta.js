@@ -1,0 +1,3 @@
+class Pregunta {
+    id 
+}

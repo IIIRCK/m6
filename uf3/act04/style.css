@@ -1,0 +1,230 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+header{
+    height: 15%;
+    width: 100%;
+    border: 1px solid black;
+    background-color: rebeccapurple;
+
+}
+.container{
+    height: 85%;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.fct{
+    height: 25%;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px lightgray;
+    border-top: rebeccapurple 10px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    transition: height linear 0.1s;
+    padding: 0 35px 0 35px;
+    box-sizing: border-box;
+
+
+}
+#fct_title{
+    width: 100%;
+    height:40%;
+    border: none;
+    font-size: 2.5em;
+    outline: none;
+    border-bottom: lightgray 2.5px solid;
+
+}
+#fct_description{
+    width: 100%;
+    height: 20%;
+    border: none;
+    border-bottom: lightgray 2.5px solid;
+    font-size: 1em;
+    outline: none;
+    resize: none;
+    transition: height linear 0.1s;
+}
+#description:focus{
+    margin-bottom:  5%;
+}
+#title:focus{
+
+}
+
+.fc{
+    height: 300px;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px lightgray;
+    border-left: lightgreen 10px solid;
+
+    position: relative;
+    top: 5%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0 35px 0 35px;
+}
+#fc_title{
+    width:42.5%;
+    height: 100%;
+    border: none;
+    border-bottom: 2px solid rebeccapurple;
+    outline: none;
+    background-color: #efefef;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 1.5em;
+
+}
+.fc_inputs{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.fc_inputs > select {
+    width:42.5%;
+    height: 75%;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+}
+.fc_inputs > select:focus{
+    border: none;
+
+}
+.fcc{
+    /border: 1px solid black;
+    height: 40%;
+    width: 100%;
+}
+.fco{
+    border-top: 2px solid lightgray;
+    height: 15%;
+    width: 100%;
+}
+.grab{
+    height: 2.5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 1%;
+}
+.grab:hover{
+    cursor: grab;
+}
+
+.points{
+    height: 2.5px;
+    width: 3px;
+    background-color: lightgray;
+    border: 1px solid gray;
+    margin: 1px;
+    border-radius: 100px;
+}
+.fcc{
+    display: flex;
+    align-items: center;
+}
+.o1{
+    border: none;
+    border-bottom: 2.5px solid lightgray;
+    height: 25%;
+    width: 75%;
+    outline: none;
+
+}
+
+.o2{
+   width: 100%;
+    resize: none;
+    height: 50%;
+    outline: none;
+    border: none;
+    border-bottom: 2.5px solid lightgray;
+    scrollbar-width: none;
+}
+
+.o3 {
+    border: none;
+    width: 80%;
+    margin-left: 5%;
+    outline: none;
+
+}
+.o3:focus{
+    border-bottom: 2.5px solid lightgray;
+
+}
+
+.o3r{
+    height: 17.5px;
+    width: 17.5px;
+ }
+.fcc>ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fcc>ul{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+@keyframes bb {
+  0%{
+
+
+  } 100%{
+
+    }
+}
+.fco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: content-box;
+}
+
+.itrash{
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+
+}
+.itrash:hover{
+    background-color: lightgray;
+    border-radius: 25px;
+
+}
+hr{
+
+    border:         none;
+    border-left:    3px solid hsla(200, 10%, 50%,100);
+    height:         75%;
+    width:          1px;
+    margin: 10px;
+}
