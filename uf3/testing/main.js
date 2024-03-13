@@ -1,8 +1,1 @@
-document.addEventListener('DOMContentLoaded',function (){
-    
-    
-})
-const imgs = document.querySelectorAll('img')
-for (const img in imgs) {
-   img.set
-}
+import * as THREE from 'https://unpkg.com/three@0.162.0/build/three.module.js'
